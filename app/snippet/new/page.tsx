@@ -5,7 +5,11 @@ return (
     <div className="px-20 space-y-4 mt-5">
     <div>
         <Label>Title</Label>
+<input name="title" id="title" />
     </div>
+<div>
+<Label>Code</Label>
+</div>
     </div>
 )
 }
