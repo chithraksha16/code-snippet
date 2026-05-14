@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const SnippetDetails = async ({ params }: { params: Promise<{ id: string }> }) => {
     const id = parseInt((await (params)).id)
@@ -16,7 +17,7 @@ const SnippetDetails = async ({ params }: { params: Promise<{ id: string }> }) =
             <div className="flex items-center justify-between">
             <h1>{snippet?.title}</h1>
             <div className="flex items-center gap-2">
-                <Button>Edit</Button>
+                <Link href={`/snippet/${snippet.id}/edit`}><Button>Edit</Button></Link>
                 <Button variant={'destructive'}>Delete</Button>
             </div>
             </div>
