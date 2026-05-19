@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma"
 import { redirect } from "next/navigation";
 
 
- const saveSnippet=async(id:number,code:string)=>{
+ export const saveSnippet=async(id:number,code:string)=>{
     await prisma.snippet.update({
         where:{
             id
@@ -16,4 +16,16 @@ import { redirect } from "next/navigation";
     redirect('/')
 }
 
-export default saveSnippet
+
+
+
+
+export const deleteSnippet=async(id:number)=>{
+        await prisma.snippet.delete({
+            where:{
+                id
+            }
+        })
+        redirect('/')
+    }
+
