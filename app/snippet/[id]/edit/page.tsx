@@ -1,5 +1,6 @@
 import EditSnippet from "@/components/EditSnippet"
 import prisma from "@/lib/prisma";
+import { notFound } from "next/navigation";
 
 
 const page = async({params}:{params:Promise<{id:string}>}) => {
@@ -9,6 +10,7 @@ const page = async({params}:{params:Promise<{id:string}>}) => {
       id
     }
   })
+  if(!snippet) return notFound()
   return (
   <EditSnippet snippet={snippet}/>
   )
