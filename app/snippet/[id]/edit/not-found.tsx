@@ -2,8 +2,8 @@ import React from 'react'
 
 const SnippetNotFound = () => {
   return (
-    <div>
-      SnippetNotFound
+    <div className='flex justify-center items-center'>
+     <h1> SnippetNotFound</h1>
     </div>
   )
 }
