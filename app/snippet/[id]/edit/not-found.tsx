@@ -1,9 +1,9 @@
-import React from 'react'
+
 
 const SnippetNotFound = () => {
   return (
-    <div className='flex justify-center items-center'>
-     <h1> SnippetNotFound</h1>
+    <div className='flex justify-center items-center bg-black text-white'>
+     <h1>404 SnippetNotFound</h1>
     </div>
   )
 }
