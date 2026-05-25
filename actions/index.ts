@@ -18,8 +18,9 @@ import { redirect } from "next/navigation";
 
 
  export const createSnippet=async(prevState:{message:string},formData:FormData)=>{
-        
-        const title=formData.get("title");
+        try {
+            
+            const title=formData.get("title");
         const code =formData.get("code");
         
         if(typeof title !== "string" || title.length<2 ){
@@ -29,13 +30,18 @@ import { redirect } from "next/navigation";
             return {message:"Code is required and must be longer"}
         }
 
-        const snippet=await prisma.snippet.create({
+        await prisma.snippet.create({
             data:{
                 title,
                 code
             }
         });
-        console.log("Snippet:",snippet)
+        
+        
+        } catch (error:any) {
+            return {message:error?.message ||"Opps something went Wrong"}
+        }
+        
         redirect("/")
 
     }
