@@ -17,6 +17,30 @@ import { redirect } from "next/navigation";
 }
 
 
+ export const createSnippet=async(prevState:{message:string},formData:FormData)=>{
+        
+        const title=formData.get("title");
+        const code =formData.get("code");
+        
+        if(typeof title !== "string" || title.length<2 ){
+            return {message:"Title is required and must be longer"}
+        }
+        if(typeof code !== "string" || code.length<2 ){
+            return {message:"Code is required and must be longer"}
+        }
+
+        const snippet=await prisma.snippet.create({
+            data:{
+                title,
+                code
+            }
+        });
+        console.log("Snippet:",snippet)
+        redirect("/")
+
+    }
+
+
 
 
 
