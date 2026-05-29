@@ -12,11 +12,12 @@ const newSnippet = () => {
     return (
         <div className="px-20  mt-5">
             <form action={action} className="space-y-5">
-            <div>
+                <h1 className="text-xl font-bold">Add a Code here</h1>
+            <div className="space-y-2">
                 <Label>Title</Label>
                 <Input type="text" name="title" id="title" />
             </div>
-            <div>
+            <div className="space-y-2">
                 <Label>Code</Label>
                 <Textarea name="code" id="code" />
             </div>
